@@ -1,5 +1,4 @@
-
-        const firebaseConfig = {
+const firebaseConfig = {
           apiKey: "AIzaSyBGlI8QRX8VY3vBLdRfp2Mq9m1943WUSeU",
           authDomain: "ericles-agendamento.firebaseapp.com",
           databaseURL: "https://ericles-agendamento-default-rtdb.firebaseio.com/",
