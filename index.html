@@ -38,7 +38,7 @@
 
       
       <button id="btnEntrar" class="btn" style="max-width: 320px; margin-bottom: 10px">
-        Agendar horário
+        Quero agendar meu corte
       </button>
 
       <button
@@ -46,7 +46,7 @@
         class="btn btn-dark"
         style="max-width: 320px; margin-top: 0; margin-bottom: 30px"
       >
-        Sou barbeiro
+        Barbeiro
       </button>
     </div>
 
@@ -59,44 +59,44 @@
 
         <div class="card" id="cardServico">
           <div class="step">PASSO 1</div>
-          <h3>Escolha o serviço</h3>
+          <h3>Qual serviço deseja?</h3>
           <div id="listaServicos" class="grid"></div>
         </div>
 
         <div id="cardServicosSel" class="card hidden">
-          <h3>Serviços selecionados</h3>
+          <h3>Seus serviços escolhidos</h3>
           <div id="listaServicosSel"></div>
           <button id="btnLimparServicos" class="btn-outline">
-            Limpar serviços
+            Recomeçar seleção
           </button>
         </div>
 
         <div id="cardBarbeiro" class="card hidden">
           <div class="step">PASSO 2</div>
-          <h3>Escolha o barbeiro</h3>
+          <h3>Com qual profissional?</h3>
           <div id="listaBarbeiros" class="grid"></div>
         </div>
 
         <div id="cardData" class="card hidden">
           <div class="step">PASSO 3</div>
-          <h3>Escolha o dia</h3>
+          <h3>Qual o melhor dia pra você?</h3>
 
           <select id="dataEscolhida"></select>
 
           <button id="btnConfirmarData" class="btn-dark btn">
-            Ver horários deste dia
+            Mostrar horários disponíveis
           </button>
         </div>
 
         <div id="cardHorarios" class="card hidden">
           <div class="step">PASSO 4</div>
-          <h3>Escolha o horário</h3>
+          <h3>Que horas fica bom?</h3>
           <div id="listaHorarios" class="grid"></div>
         </div>
 
         <div id="cardCliente" class="card hidden">
           <div class="step">PASSO 5</div>
-          <h3>Confirmar reserva</h3>
+          <h3>Finalize seu agendamento</h3>
 
           <div id="resumoEscolha"></div>
 
@@ -124,7 +124,7 @@
             </div>
           </div>
 
-          <button id="btnReservar" class="btn">Reservar horário</button>
+          <button id="btnReservar" class="btn">Confirmar meu horário</button>
         </div>
       </div>
 
@@ -161,7 +161,7 @@
 
       <div id="telaBarbeiro" class="hidden">
         <div class="card">
-          <h3>Modo barbeiro</h3>
+          <h3>Painel do profissional</h3>
 
           <label>Seu nome</label>
           <select id="barbeiroModoSel"></select>
@@ -170,23 +170,23 @@
           <input type="date" id="barbeiroModoData" />
 
           <button id="btnVerAgendaBarbeiro" class="btn">
-            Ver minha agenda
+            Consultar minha agenda
           </button>
 
           <button id="btnVoltarCliente" class="btn-outline">
-            Voltar para cliente
+            Voltar ao início
           </button>
         </div>
 
         <div class="card">
-          <h3>Clientes do dia</h3>
+          <h3>Agenda de hoje</h3>
           <div id="listaBarbeiroAgenda"></div>
         </div>
 
         <!-- REGISTRO ORDEM DE CHEGADA (WIZARD) -->
         <div class="card">
-          <h3>✏️ Registrar atendimento</h3>
-          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Cortes por ordem de chegada ou sem agendamento.</p>
+          <h3>✏️ Novo atendimento avulso</h3>
+          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Registre cortes por ordem de chegada ou clientes sem agendamento prévio.</p>
 
           <div id="ocStep1">
             <label>Barbeiro</label>
@@ -224,8 +224,8 @@
 
         <!-- DISPONIBILIDADE (moved from admin) -->
         <div class="card">
-          <h3>📅 Abrir horários para clientes</h3>
-          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Crie os horários que os clientes poderão agendar.</p>
+          <h3>📅 Disponibilizar horários</h3>
+          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Defina os horários que ficarão abertos para os clientes agendarem.</p>
 
           <label>Barbeiro</label>
           <select id="barbDispBarbeiroSel"></select>
@@ -236,24 +236,24 @@
           <input type="date" id="barbDispDataPick" />
 
           <button id="btnBarbGerarSlots" class="btn-dark btn">
-            Gerar horários base
+            Criar grade de horários
           </button>
 
           <div id="barbSlotsGrid" class="grid"></div>
 
           <button id="btnBarbSalvarSlotsDia" class="btn">
-            Salvar disponibilidade
+            Confirmar e liberar horários
           </button>
 
           <button id="btnBarbLimparGerador" class="btn-outline">
-            Limpar seleção
+            Desmarcar tudo
           </button>
         </div>
 
         <!-- RESET HORÁRIOS (moved from admin) -->
         <div class="card">
-          <h3>🗑️ Remover horários abertos</h3>
-          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Veja e remova horários que já foram abertos para agendamento.</p>
+          <h3>🗑️ Gerenciar horários abertos</h3>
+          <p style="font-size:12px;opacity:0.7;margin-bottom:10px;">Visualize e remova horários que já foram liberados para agendamento.</p>
 
           <label>Barbeiro</label>
           <select id="barbResetBarbeiroSel"></select>
@@ -261,7 +261,7 @@
           <div id="barbResetNomeAtual" style="margin:8px 0;padding:10px;border-radius:10px;background:rgba(180,180,180,0.1);text-align:center;font-weight:bold;display:none;"></div>
 
           <button id="btnBarbAbrirReset" class="btn-outline">
-            Abrir gerenciador
+            Ver horários liberados
           </button>
 
           <div id="barbResetBox" class="hidden">
@@ -272,15 +272,15 @@
             <div id="barbResetHorarios" class="grid"></div>
 
             <button id="btnBarbExcluirSlots" class="btn-danger btn">
-              Remover horários
+              Excluir horários selecionados
             </button>
           </div>
         </div>
 
         <!-- TODOS AGENDAMENTOS DO DIA -->
         <div class="card">
-          <h3>📋 Agendamentos do dia</h3>
-          <button id="btnToggleAgendDia" class="btn-outline" style="margin-bottom:10px;">Ver agendamentos de hoje</button>
+          <h3>📋 Todos os agendamentos de hoje</h3>
+          <button id="btnToggleAgendDia" class="btn-outline" style="margin-bottom:10px;">Exibir lista completa</button>
 
           <div id="agendDiaBox" class="hidden">
             <label>Filtrar por barbeiro</label>
@@ -296,28 +296,28 @@
 
       <div id="telaAdmin" class="hidden">
         <div class="card card-sub">
-          <h3>Painel administrador</h3>
-          <button id="btnLogout" class="btn-outline">Sair do painel</button>
+          <h3>Área administrativa</h3>
+          <button id="btnLogout" class="btn-outline">Encerrar sessão</button>
         </div>
 
         <div class="card">
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayVendas')">
-            <span class="menu-icon">📊</span> Relatórios de vendas
+            <span class="menu-icon">📊</span> Faturamento e vendas
           </button>
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayComissoes')">
-            <span class="menu-icon">💰</span> Comissões
+            <span class="menu-icon">💰</span> Comissões dos profissionais
           </button>
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayDespesas')">
-            <span class="menu-icon">📋</span> Despesas
+            <span class="menu-icon">📋</span> Controle de despesas
           </button>
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayClientes')">
-            <span class="menu-icon">👥</span> Clientes
+            <span class="menu-icon">👥</span> Base de clientes
           </button>
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayServicos')">
-            <span class="menu-icon">✂️</span> Serviços
+            <span class="menu-icon">✂️</span> Catálogo de serviços
           </button>
           <button class="admin-menu-btn" onclick="abrirAdminOverlay('overlayBarbeiros')">
-            <span class="menu-icon">💈</span> Barbeiros
+            <span class="menu-icon">💈</span> Equipe de profissionais
           </button>
         </div>
       </div>
@@ -325,7 +325,7 @@
       <!-- ADMIN OVERLAYS -->
       <div id="overlayVendas" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayVendas')">←</button>
-        <div class="admin-overlay-title">Relatórios de vendas</div>
+        <div class="admin-overlay-title">Faturamento e vendas</div>
         <div style="max-width:600px;margin:auto;">
           <button id="btnRelHoje" class="relatorio-btn">Relatório de hoje</button>
           <button id="btnRelPeriodo" class="btn-dark btn">Relatório por período</button>
@@ -337,7 +337,7 @@
 
       <div id="overlayComissoes" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayComissoes')">←</button>
-        <div class="admin-overlay-title">Comissões</div>
+        <div class="admin-overlay-title">Comissões dos profissionais</div>
         <div style="max-width:600px;margin:auto;">
           <select id="comissaoTipoSel">
             <option value="dia">Dia</option>
@@ -358,7 +358,7 @@
 
       <div id="overlayDespesas" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayDespesas')">←</button>
-        <div class="admin-overlay-title">Despesas</div>
+        <div class="admin-overlay-title">Controle de despesas</div>
         <div style="max-width:600px;margin:auto;">
           <input id="despesaProduto" placeholder="Nome do produto" />
           <input id="despesaQtd" placeholder="Quantidade" type="number" min="1" />
@@ -381,7 +381,7 @@
 
       <div id="overlayClientes" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayClientes')">←</button>
-        <div class="admin-overlay-title">Clientes</div>
+        <div class="admin-overlay-title">Base de clientes</div>
         <div style="max-width:600px;margin:auto;">
           <div id="listaClientes"></div>
         </div>
@@ -389,7 +389,7 @@
 
       <div id="overlayServicos" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayServicos')">←</button>
-        <div class="admin-overlay-title">Serviços</div>
+        <div class="admin-overlay-title">Catálogo de serviços</div>
         <div style="max-width:600px;margin:auto;">
           <input id="novoServicoNome" placeholder="Nome do serviço" />
           <input id="novoServicoPreco" placeholder="Preço" />
@@ -400,7 +400,7 @@
 
       <div id="overlayBarbeiros" class="admin-overlay">
         <button class="admin-overlay-close" onclick="fecharAdminOverlay('overlayBarbeiros')">←</button>
-        <div class="admin-overlay-title">Barbeiros</div>
+        <div class="admin-overlay-title">Equipe de profissionais</div>
         <div style="max-width:600px;margin:auto;">
           <input id="novoBarbeiro" placeholder="Nome do barbeiro" />
           <button id="btnAddBarbeiro" class="btn">Adicionar barbeiro</button>
@@ -412,7 +412,7 @@
 
       <div id="telaExclusao" class="hidden">
         <div class="card">
-          <h3>Excluir agendamentos</h3>
+          <h3>Cancelar agendamentos</h3>
 
           <label>Barbeiro</label>
           <select id="excBarbeiro"></select>
