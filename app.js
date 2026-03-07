@@ -1,4 +1,5 @@
-const firebaseConfig = {
+
+        const firebaseConfig = {
           apiKey: "AIzaSyBGlI8QRX8VY3vBLdRfp2Mq9m1943WUSeU",
           authDomain: "ericles-agendamento.firebaseapp.com",
           databaseURL: "https://ericles-agendamento-default-rtdb.firebaseio.com/",
@@ -2045,4 +2046,94 @@ Data: ${d.data || "-"}
             renderClientes();
           }
         });
+
+        (function initInstallApp() {
+          const btnInstalar = document.getElementById("btnInstalarApp");
+          const installModal = document.getElementById("installModal");
+          const installModalClose = document.getElementById("installModalClose");
+          const installModalOk = document.getElementById("installModalOk");
+
+          if (!btnInstalar || !installModal) return;
+
+          const isStandalone =
+            window.matchMedia("(display-mode: standalone)").matches ||
+            window.navigator.standalone === true;
+
+          if (isStandalone) {
+            btnInstalar.style.display = "none";
+            return;
+          }
+
+          function detectPlatform() {
+            const ua = navigator.userAgent || "";
+            if (/iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)) {
+              return "ios";
+            }
+            if (/Android/i.test(ua)) {
+              return "android";
+            }
+            return "desktop";
+          }
+
+          const platform = detectPlatform();
+          let deferredPrompt = null;
+
+          if (platform === "ios") {
+            btnInstalar.style.display = "";
+          } else {
+            btnInstalar.style.display = "none";
+          }
+
+          window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            btnInstalar.style.display = "";
+          });
+
+          window.addEventListener("appinstalled", () => {
+            deferredPrompt = null;
+            btnInstalar.style.display = "none";
+          });
+
+          function showInstructionsModal() {
+            const instrAndroid = document.getElementById("instrucaoAndroid");
+            const instrIOS = document.getElementById("instrucaoIOS");
+            const instrDesktop = document.getElementById("instrucaoDesktop");
+            if (instrAndroid) instrAndroid.classList.toggle("hidden", platform !== "android");
+            if (instrIOS) instrIOS.classList.toggle("hidden", platform !== "ios");
+            if (instrDesktop) instrDesktop.classList.toggle("hidden", platform !== "desktop");
+            installModal.classList.remove("hidden");
+          }
+
+          function closeModal() {
+            installModal.classList.add("hidden");
+          }
+
+          btnInstalar.addEventListener("click", async () => {
+            if (deferredPrompt) {
+              deferredPrompt.prompt();
+              const result = await deferredPrompt.userChoice;
+              if (result.outcome === "accepted") {
+                btnInstalar.style.display = "none";
+              }
+              deferredPrompt = null;
+            } else {
+              showInstructionsModal();
+            }
+          });
+
+          if (installModalClose) installModalClose.addEventListener("click", closeModal);
+          if (installModalOk) installModalOk.addEventListener("click", closeModal);
+          installModal.addEventListener("click", (e) => {
+            if (e.target === installModal) closeModal();
+          });
+
+          if (platform !== "ios") {
+            setTimeout(() => {
+              if (!deferredPrompt) {
+                btnInstalar.style.display = "";
+              }
+            }, 3000);
+          }
+        })();
       
