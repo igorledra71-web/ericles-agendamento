@@ -1,4 +1,4 @@
-const CACHE_NAME = "ericles-barbearia-v3";
+const CACHE_NAME = "ericles-barbearia-v4";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",
