@@ -14,7 +14,8 @@
     <title>Ericles Barbearia • Agendamento</title>
 
     <link rel="manifest" href="manifest.json" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512.png" />
     <meta name="theme-color" content="#0a0a0f" />
 
     <link
@@ -46,10 +47,59 @@
       <button
         id="btnModoBarbeiro"
         class="btn btn-dark"
-        style="max-width: 320px; margin-top: 0; margin-bottom: 30px"
+        style="max-width: 320px; margin-top: 0; margin-bottom: 10px"
       >
         Barbeiro
       </button>
+
+      <button
+        id="btnInstalarApp"
+        class="btn btn-install"
+        style="max-width: 320px; margin-top: 0; margin-bottom: 30px"
+      >
+        📲 Instalar App no Celular
+      </button>
+    </div>
+
+    <div id="installModal" class="install-modal hidden">
+      <div class="install-modal-content">
+        <button id="installModalClose" class="install-modal-close">✕</button>
+        <h2>📲 Instalar o App</h2>
+        <p class="install-modal-desc">Siga as instruções para o seu dispositivo:</p>
+
+        <div id="instrucaoAndroid" class="install-instrucao hidden">
+          <h3>📱 Android (Chrome)</h3>
+          <ol>
+            <li>Toque no menu <strong>⋮</strong> (três pontinhos no canto superior direito)</li>
+            <li>Selecione <strong>"Adicionar à tela inicial"</strong> ou <strong>"Instalar app"</strong></li>
+            <li>Toque em <strong>"Adicionar"</strong> para confirmar</li>
+            <li>O app aparecerá na sua tela inicial como um ícone!</li>
+          </ol>
+        </div>
+
+        <div id="instrucaoIOS" class="install-instrucao hidden">
+          <h3>🍎 iPhone / iPad (Safari)</h3>
+          <p class="install-aviso">⚠️ No iPhone, use o <strong>Safari</strong> (não funciona no Chrome)</p>
+          <ol>
+            <li>Toque no botão de <strong>compartilhar</strong> (ícone <strong>⬆️</strong> na barra inferior)</li>
+            <li>Role para baixo e selecione <strong>"Adicionar à Tela de Início"</strong></li>
+            <li>Toque em <strong>"Adicionar"</strong> no canto superior direito</li>
+            <li>O app aparecerá na sua tela inicial como um ícone!</li>
+          </ol>
+        </div>
+
+        <div id="instrucaoDesktop" class="install-instrucao hidden">
+          <h3>💻 Computador (Chrome / Edge)</h3>
+          <ol>
+            <li>Clique no ícone de <strong>instalação</strong> (📥) na barra de endereço do navegador</li>
+            <li>Ou clique no menu <strong>⋮</strong> → <strong>"Instalar Ericles Barbearia"</strong></li>
+            <li>Confirme clicando em <strong>"Instalar"</strong></li>
+            <li>O app será adicionado aos seus aplicativos!</li>
+          </ol>
+        </div>
+
+        <button id="installModalOk" class="btn" style="margin-top: 15px;">Entendi!</button>
+      </div>
     </div>
 
     <header id="topo">Ericles Barbearia</header>
