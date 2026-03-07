@@ -2078,16 +2078,9 @@ Data: ${d.data || "-"}
           const platform = detectPlatform();
           let deferredPrompt = null;
 
-          if (platform === "ios") {
-            btnInstalar.style.display = "";
-          } else {
-            btnInstalar.style.display = "none";
-          }
-
           window.addEventListener("beforeinstallprompt", (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            btnInstalar.style.display = "";
           });
 
           window.addEventListener("appinstalled", () => {
@@ -2127,13 +2120,5 @@ Data: ${d.data || "-"}
           installModal.addEventListener("click", (e) => {
             if (e.target === installModal) closeModal();
           });
-
-          if (platform !== "ios") {
-            setTimeout(() => {
-              if (!deferredPrompt) {
-                btnInstalar.style.display = "";
-              }
-            }, 3000);
-          }
         })();
       
